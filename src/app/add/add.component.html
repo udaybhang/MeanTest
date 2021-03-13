@@ -1,0 +1,93 @@
+
+
+<div class="container">
+    <div class="row">
+      <div class="mg">
+        <form #mmvForm="ngForm" (ngSubmit)="onSubmit(mmvForm)">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" #name="ngModel" class="form-control" [(ngModel)]="model.name" required>
+            <small class="text-danger" [class.d-none]="name.valid || name.untouched">Please Enter Name.</small>
+          </div>
+        
+          <div class="form-group">
+            <label>modal</label>
+            <input type="email" class="form-control" #modal="ngModel" name="email" [(ngModel)]="model.modal" required>
+            <small class="text-danger" [class.d-none]="modal.valid || modal.untouched">Please Enter Modal.</small>
+          </div>
+        
+          <div class="form-group">
+            <label >Price:</label>
+            <input type="number" #price="ngModel" class="form-control"  name="price"
+              [(ngModel)]="model.price" required />
+              <small class="text-danger" [class.d-none]="price.valid || price.untouched">Please Enter Price.</small>
+          </div>
+                 
+          <div class="form-group">
+            <label>Category</label>
+            <select name="category" class="form-control"  [(ngModel)]="model.category" required>
+                <option value="">Select Category</option>
+                <option *ngFor="let ct of category" [value]="ct.value">{{ct.name}}</option>
+            </select>
+            <!-- <small class="text-danger" [class.d-none]="category.valid || category.untouched">Please Select Category.</small> -->
+          </div>
+        
+          <div class="form-group">
+            <button class="btn btn-danger btn-block">Submit</button>
+          </div>
+        </form>
+      </div>
+     
+    </div>
+    <br>
+    <!--  -->
+    <div *ngIf="showTable">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 65%; margin: auto;">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name. </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="modal">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.modal}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef> Price </th>
+              <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="category">
+              <th mat-header-cell *matHeaderCellDef> category </th>
+              <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef>Action</th>
+                <td mat-cell *matCellDef="let element">
+                  <a [routerLink]="[element._id + '/edit']"
+                        ><button
+                          mat-raised-button
+                          class="btn-add btn-primary"
+                        >
+                        {{ 'Edit' }}
+                        </button>
+                      </a>
+                </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+    </div>
+  </div>
+  

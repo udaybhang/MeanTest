@@ -1,0 +1,29 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/internal/Subject';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProductService {
+  private getLive = new Subject<any>();
+  constructor(private http: HttpClient
+    
+    ) { }
+
+ 
+  getProduct() {
+    return this.http.get<any>('http://localhost:3000/api/product/getProduct'); 
+  }
+  postProduct(model:any) {
+    return this.http.post<any>('http://localhost:3000/api/product/createProduct', model);
+  }
+getSingleProduct(id: any) {
+    return this.http.get<any>(`http://localhost:3000/api/product/getSingleProduct/${id}`); 
+  }
+
+  updateProduct(model:any) {
+    return this.http.put<any>("http://localhost:3000/api/product/updateProduct", model);
+  }
+
+}
