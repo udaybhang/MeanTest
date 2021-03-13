@@ -42,6 +42,7 @@
               <button class="btn btn-danger btn-block">Submit</button>
             </div>
           </form>
+        
         </div>
        
       </div>
@@ -49,8 +50,9 @@
     </div>
     <br>
     <!--  -->
-    <div *ngIf="showTable">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 65%; margin: auto;">
+    <div class="card" style="width: 60%; margin: auto;">
+      <div *ngIf="showTable">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%; margin: auto;">
 
             <!--- Note that these columns can be defined in any order.
                   The actual rendered columns are set as a property on the row definition" -->
@@ -95,7 +97,21 @@
           
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                <mat-paginator [length]="100"
+                [pageSize]="10"
+                [pageSizeOptions]="[5, 10, 25, 100]">
+                </mat-paginator>
           </table>
+         
     </div>
+    <div class="row">
+      <mat-paginator [length]="100"
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 25, 100]">
+      </mat-paginator>
+    </div>
+    </div>
+   
+   
   </div>
   

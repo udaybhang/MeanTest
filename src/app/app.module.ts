@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { AppComponent } from './app.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,6 +25,7 @@ import { EditComponent } from './edit/edit.component';
     FlashMessagesModule.forRoot(),
     BrowserAnimationsModule,
     FormsModule,
+    MatPaginatorModule,
     HttpClientModule,
     MatTableModule
   ],

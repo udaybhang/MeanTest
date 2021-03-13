@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
+import { MatPaginator } from "@angular/material/paginator";
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-add',
@@ -12,6 +14,8 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 export class AddComponent implements OnInit {
   name: any = 'udaybhan';
   allData: any;
+  @ViewChild(MatPaginator, { static: true })
+  paginator:any = MatPaginator;
   constructor(private pServ: ProductService, private router: Router, private flashServ: FlashMessagesService) {
 
   }
@@ -29,7 +33,6 @@ onSubmit(form: NgForm) {
     return;
   }
 this.pServ.postProduct(this.model).subscribe(data=> {
-  console.log('save data   ==', data)
   if(data) {
     this.flashServ.show('Save Success!', {cssClass: 'alert-danger', timeout: 3000})
   }
@@ -42,7 +45,8 @@ getData() {
   this.pServ.getProduct().subscribe(res=>{
     this.showTable = true;
     this.allData = res;
-   this.dataSource = this.allData;
+   this.dataSource =   this.dataSource = new MatTableDataSource(this.allData);
+   this.dataSource.paginator = this.paginator;
   })
 }
 ngOnInit() {
