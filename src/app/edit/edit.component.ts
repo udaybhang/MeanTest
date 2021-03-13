@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -16,13 +17,16 @@ export class EditComponent implements OnInit {
     { name: 'Tw wheeler', value: 'tw' },
     { name: 'Cfw wheeler', value: 'cfw' }
   ]
-  constructor(private pServ: ProductService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private pServ: ProductService, private flashServ: FlashMessagesService, private route: ActivatedRoute, private router: Router) { }
 
   onSubmit(form: NgForm) {
     if (form.invalid) {
       return;
     }
   this.pServ.updateProduct(this.model).subscribe(data=> {
+    if(data) {
+      this.flashServ.show('Update Success!', {cssClass: 'alert-danger', timeout: 3000})
+    }
     this.router.navigate(['/product'])
   })
   }
