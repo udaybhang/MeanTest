@@ -3,39 +3,46 @@
 <div class="container">
     <div class="row">
       <div class="mg">
-        <form #mmvForm="ngForm" (ngSubmit)="onSubmit(mmvForm)">
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" name="name" #name="ngModel" class="form-control" [(ngModel)]="model.name" required>
-            <small class="text-danger" [class.d-none]="name.valid || name.untouched">Please Enter Name.</small>
+        <div class="card">
+          <div class="card-header">
+            Edit MMV
           </div>
-        
-          <div class="form-group">
-            <label>modal</label>
-            <input type="email" class="form-control" #modal="ngModel" name="email" [(ngModel)]="model.modal" required>
-            <small class="text-danger" [class.d-none]="modal.valid || modal.untouched">Please Enter Modal.</small>
-          </div>
-        
-          <div class="form-group">
-            <label >Price:</label>
-            <input type="number" #price="ngModel" class="form-control"  name="price"
-              [(ngModel)]="model.price" required />
-              <small class="text-danger" [class.d-none]="price.valid || price.untouched">Please Enter Price.</small>
-          </div>
-                 
-          <div class="form-group">
-            <label>Category</label>
-            <select name="category" class="form-control"  [(ngModel)]="model.category" required>
-                <option value="">Select Category</option>
-                <option *ngFor="let ct of category" [value]="ct.value">{{ct.name}}</option>
-            </select>
-            <!-- <small class="text-danger" [class.d-none]="category.valid || category.untouched">Please Select Category.</small> -->
-          </div>
-        
-          <div class="form-group">
-            <button class="btn btn-danger btn-block">Submit</button>
-          </div>
-        </form>
+          <br>
+          <form #mmvForm="ngForm" (ngSubmit)="onSubmit(mmvForm)">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" name="name" #name="ngModel" class="form-control" [(ngModel)]="model.name" required>
+              <small class="text-danger" [class.d-none]="name.valid || name.untouched">Please Enter Name.</small>
+            </div>
+          
+            <div class="form-group">
+              <label>modal</label>
+              <input type="email" class="form-control" #modal="ngModel" name="email" [(ngModel)]="model.modal" required>
+              <small class="text-danger" [class.d-none]="modal.valid || modal.untouched">Please Enter Modal.</small>
+            </div>
+          
+            <div class="form-group">
+              <label >Price:</label>
+              <input type="number" #price="ngModel" class="form-control"  name="price"
+                [(ngModel)]="model.price" required />
+                <small class="text-danger" [class.d-none]="price.valid || price.untouched">Please Enter Price.</small>
+            </div>
+                   
+            <div class="form-group">
+              <label>Category</label>
+              <select name="category" class="form-control"  [(ngModel)]="model.category" required>
+                  <option value="">Select Category</option>
+                  <option *ngFor="let ct of category" [value]="ct.value">{{ct.name}}</option>
+              </select>
+              <!-- <small class="text-danger" [class.d-none]="category.valid || category.untouched">Please Select Category.</small> -->
+            </div>
+          
+            <div class="form-group">
+              <button class="btn btn-danger btn-block">Submit</button>
+            </div>
+          </form>
+        </div>
+       
       </div>
      
     </div>

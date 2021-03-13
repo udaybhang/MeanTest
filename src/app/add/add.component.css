@@ -3,3 +3,12 @@
     width: 60%;
     margin-top: 10%;
 }
+
+.card-header{
+    background-color: blue;
+    color: white;
+}
+
+label{
+    font-weight: bold;
+}
