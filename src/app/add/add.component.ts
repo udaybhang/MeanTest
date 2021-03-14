@@ -17,6 +17,8 @@ export class AddComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true })
   paginator:any = MatPaginator;
   images: any;
+  imgUrl: any = '';
+  selectedFile: boolean = false;
   constructor(private pServ: ProductService, private router: Router, private flashServ: FlashMessagesService) {
 
   }
@@ -42,10 +44,17 @@ this.pServ.postProduct(this.model, this.images).subscribe(data=> {
 }
 
 imgonChange(event:any) {
+  this.selectedFile = true;
   if (event.target.files.length > 0) {
     const file = event.target.files[0];
     this.images = file;
   }
+  // Show image preview
+  const reader = new FileReader();
+  reader.onload = (event: any) => {
+      this.imgUrl = event.target.result; // base64 path
+   };
+   reader.readAsDataURL(this.images);
 }
 getData() {
   this.pServ.getProduct().subscribe(res=>{

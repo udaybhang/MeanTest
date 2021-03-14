@@ -18,7 +18,8 @@
             
             <div class="form-group">
               <label>Image</label><br>
-              <input type="file" name="image" (change)="imgonChange($event)" />
+              <input type="file" name="image" (change)="imgonChange($event)" /><br>
+              <img *ngIf="selectedFile" [src]="imgUrl" name="preview" style="width:4rem;height:4rem" />
             </div> 
 
             <div class="form-group">
