@@ -15,8 +15,17 @@ export class ProductService {
   getProduct() {
     return this.http.get<any>('http://localhost:3000/api/product/getProduct'); 
   }
-  postProduct(model:any) {
-    return this.http.post<any>('http://localhost:3000/api/product/createProduct', model);
+  postProduct(model:any, img:any) {
+    const formData = new FormData();
+    formData.append('file', img);
+    formData.append('name', model.name);
+    formData.append('modal', model.modal);
+    formData.append('price', model.price);
+    formData.append('category', model.category);
+    // formData.forEach(item=>{
+    //   console.log('item===', item)
+    // })
+    return this.http.post<any>('http://localhost:3000/api/product/createProduct', formData);
   }
 getSingleProduct(id: any) {
     return this.http.get<any>(`http://localhost:3000/api/product/getSingleProduct/${id}`); 

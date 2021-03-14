@@ -9,13 +9,18 @@
             Add MMV
           </div>
           <br>
-          <form #mmvForm="ngForm" (ngSubmit)="onSubmit(mmvForm)">
+          <form #mmvForm="ngForm" (ngSubmit)="onSubmit(mmvForm)" enctype="multipart/form-data" novalidate>
             <div class="form-group">
               <label>Name</label>
               <input type="text" name="name" #name="ngModel" class="form-control" [(ngModel)]="model.name" required>
               <small class="text-danger" [class.d-none]="name.valid || name.untouched">Please Enter Name.</small>
             </div>
-          
+            
+            <div class="form-group">
+              <label>Image</label><br>
+              <input type="file" name="image" (change)="imgonChange($event)" />
+            </div> 
+
             <div class="form-group">
               <label>modal</label>
               <input type="email" class="form-control" #modal="ngModel" name="email" [(ngModel)]="model.modal" required>
@@ -58,6 +63,11 @@
                   The actual rendered columns are set as a property on the row definition" -->
           
             <!-- Position Column -->
+            <ng-container matColumnDef="imagePath">
+              <th mat-header-cell *matHeaderCellDef> Image. </th>
+              <td mat-cell *matCellDef="let element"> <img [src]="element.imagePath"> </td>
+            </ng-container>
+
             <ng-container matColumnDef="name">
               <th mat-header-cell *matHeaderCellDef> Name. </th>
               <td mat-cell *matCellDef="let element"> {{element.name}} </td>

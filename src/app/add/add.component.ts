@@ -16,6 +16,7 @@ export class AddComponent implements OnInit {
   allData: any;
   @ViewChild(MatPaginator, { static: true })
   paginator:any = MatPaginator;
+  images: any;
   constructor(private pServ: ProductService, private router: Router, private flashServ: FlashMessagesService) {
 
   }
@@ -26,13 +27,13 @@ export class AddComponent implements OnInit {
   { name: 'Tw wheeler', value: 'tw' },
   { name: 'Cfw wheeler', value: 'cfw' }
 ]
-displayedColumns: string[] = ['name', 'price', 'modal', 'category', 'action'];
+displayedColumns: string[] = ['imagePath', 'name', 'price', 'modal', 'category', 'action'];
 dataSource:any;
 onSubmit(form: NgForm) {
   if (form.invalid) {
     return;
   }
-this.pServ.postProduct(this.model).subscribe(data=> {
+this.pServ.postProduct(this.model, this.images).subscribe(data=> {
   if(data) {
     this.flashServ.show('Save Success!', {cssClass: 'alert-danger', timeout: 3000})
   }
@@ -40,7 +41,12 @@ this.pServ.postProduct(this.model).subscribe(data=> {
 })
 }
 
-
+imgonChange(event:any) {
+  if (event.target.files.length > 0) {
+    const file = event.target.files[0];
+    this.images = file;
+  }
+}
 getData() {
   this.pServ.getProduct().subscribe(res=>{
     this.showTable = true;

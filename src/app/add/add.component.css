@@ -12,3 +12,8 @@
 label{
     font-weight: bold;
 }
+
+img {
+    width: 6rem;
+    border-radius: 50%;
+}
