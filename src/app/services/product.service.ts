@@ -31,8 +31,15 @@ getSingleProduct(id: any) {
     return this.http.get<any>(`http://localhost:3000/api/product/getSingleProduct/${id}`); 
   }
 
-  updateProduct(model:any) {
-    return this.http.put<any>("http://localhost:3000/api/product/updateProduct", model);
+  updateProduct(model:any, img:any) {
+    const formData = new FormData();
+    formData.append('file', img);
+    formData.append('name', model.name);
+    formData.append('modal', model.modal);
+    formData.append('price', model.price);
+    formData.append('_id', model._id);
+    formData.append('category', model.category);
+    return this.http.put<any>("http://localhost:3000/api/product/updateProduct", formData);
   }
 
 }

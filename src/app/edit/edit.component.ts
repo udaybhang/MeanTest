@@ -17,19 +17,37 @@ export class EditComponent implements OnInit {
     { name: 'Tw wheeler', value: 'tw' },
     { name: 'Cfw wheeler', value: 'cfw' }
   ]
+  images: any;
+  imgUrl: any = '';
+  selectedFile: boolean = false;
   constructor(private pServ: ProductService, private flashServ: FlashMessagesService, private route: ActivatedRoute, private router: Router) { }
 
   onSubmit(form: NgForm) {
     if (form.invalid) {
       return;
     }
-  this.pServ.updateProduct(this.model).subscribe(data=> {
+  this.pServ.updateProduct(this.model, this.images).subscribe(data=> {
     if(data) {
       this.flashServ.show('Update Success!', {cssClass: 'alert-danger', timeout: 3000})
     }
     this.router.navigate(['/product'])
   })
   }
+
+  imgonChange(event:any) {
+    this.selectedFile = true;
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.images = file;
+    }
+    // Show image preview
+    const reader = new FileReader();
+    reader.onload = (event: any) => {
+        this.imgUrl = event.target.result; // base64 path
+     };
+     reader.readAsDataURL(this.images);
+  }
+  
   ngOnInit(): void {
 
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
