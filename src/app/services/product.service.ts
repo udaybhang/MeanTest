@@ -39,6 +39,7 @@ getSingleProduct(id: any) {
     formData.append('price', model.price);
     formData.append('_id', model._id);
     formData.append('category', model.category);
+    // console.log('formData=====', formData.forEach(item=> console.log(item)))
     return this.http.put<any>("http://localhost:3000/api/product/updateProduct", formData);
   }
 
