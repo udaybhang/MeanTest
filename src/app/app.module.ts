@@ -11,13 +11,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductComponent } from './product.component';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
+import { RendertemplatesonconditionComponent } from './rendertemplates/rendertemplatesoncondition.component';
+import { CardComponent } from './rendercard/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     AddComponent,
-    EditComponent
+    EditComponent,
+    RendertemplatesonconditionComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

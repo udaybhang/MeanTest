@@ -1,0 +1,156 @@
+<!-- <div class="container">
+    <h4>Rendering differente type of components based on condition</h4>
+    <div class="wrapper">
+        <div *ngFor="let d of data; index as i">
+            <ng-container *ngTemplateOutlet="getSelectedComponentTemplate(d.type); context: {$implicit:{data: d}}"></ng-container>
+        </div>
+    </div>
+</div>
+
+<ng-template #cardShop let-obj>
+    <app-card [data]="obj?.data"></app-card>
+</ng-template> -->
+<!--first face  working  fine* lagane ki jarurat nahi hai kyoki ye structural directry hai -->
+<!-- <ng-template [ngIf]="true">This is ng template text</ng-template> -->
+
+<!-- second face working fine -->
+<!-- <div class="row">
+        <div class="col-md-6"> -->
+            <!-- ng container dom me koyee space nahi leta hai -->
+           <!-- <ng-container *ngTemplateOutlet="user">
+           </ng-container>
+        </div>
+        <div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user; context: {myName:'john'}"> </ng-container>
+        </div>
+        <div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user"> </ng-container>
+        </div>
+        <div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user"> </ng-container>
+        </div>
+    </div>
+
+    <ng-template #user let-name="myName">
+        <p>femfofmowmfo</p>
+        <p class="name">{{name ? name : 'Udaybhan'}}</p>
+        <p class="email">udaybhan@gmail</p>
+    </ng-template> -->
+
+    <!-- third face working fine -->
+    <!-- <div class="row">
+        <div class="col-md-6">
+           <ng-container *ngTemplateOutlet="user">
+           </ng-container>
+        </div>
+        <div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user; context: {myName:'john', myEmail:'uexefm@gmail.com'}"> </ng-container>
+        </div>
+        <div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user"> </ng-container>
+        </div>
+        <div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user"> </ng-container>
+        </div>
+    </div>
+
+    <ng-template #user let-name="myName" let-email="myEmail">
+        <p>femfofmowmfo</p>
+        <p class="name">{{name ? name : 'Udaybhan'}}</p>
+        <p class="email">{{email ? email : 'udaybhan@gmail'}}</p>
+    </ng-template> -->
+
+    <!-- fourth face -->
+
+    <!-- <div class="row">
+        <div class="col-md-6">
+           <ng-container *ngTemplateOutlet="user">
+           </ng-container>
+        </div>
+        <div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user; context: {$implicit:'john', myEmail:'uexefm@gmail.com'}"> </ng-container>
+        </div>
+        <div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user"> </ng-container>
+        </div>
+        <div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user"> </ng-container>
+        </div>
+    </div>
+
+    <ng-template #user let-name let-email="myEmail">
+        <p>femfofmowmfo</p>
+        <p class="name">{{name ? name : 'Udaybhan'}}</p>
+        <p class="email">{{email ? email : 'udaybhan@gmail'}}</p>
+    </ng-template> -->
+
+    <!-- five face -->
+
+    <!-- <div class="row">
+        <div class="col-md-6">
+           <ng-container *ngTemplateOutlet="user">
+           </ng-container>
+        </div>
+        <div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user; context: {data: {name:'john', email:'uexefm@gmail.com'}}"> </ng-container>
+        </div>
+        <div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user"> </ng-container>
+        </div>
+        <div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user"> </ng-container>
+        </div>
+    </div>
+
+    <ng-template #user let-data="data">
+        <p>femfofmowmfo</p>
+        <p class="name">{{data?.name ? data?.name : 'Udaybhan'}}</p>
+        <p class="email">{{data?.email ? data?.email : 'udaybhan@gmail'}}</p>
+    </ng-template> -->
+
+    <!-- six face -->
+    <!-- <div class="row">
+        <div class="col-md-6">
+           <ng-container *ngTemplateOutlet="user">
+           </ng-container>
+        </div>
+        <div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user; context: {data: userData}"> </ng-container>
+        </div>
+        <div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user"> </ng-container>
+        </div>
+        <div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user"> </ng-container>
+        </div>
+    </div>
+
+    <ng-template #user let-data="data">
+        <p>femfofmowmfo</p>
+        <p class="name">{{data?.name ? data?.name : 'Udaybhan'}}</p>
+        <p class="email">{{data?.email ? data?.email : 'udaybhan@gmail'}}</p>
+    </ng-template> -->
+    <!-- seven face -->
+    <div class="row">
+        <div *ngFor="let u of userData">
+            <div class="col-md-6">
+                <ng-container *ngTemplateOutlet="user; context: {data: u}"> </ng-container>
+            </div>
+        </div>
+         
+        <!--<div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user; context: {data: userData[1]}"> </ng-container>
+        </div>
+        <div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user; context: {data: userData[2]}"> </ng-container>
+        </div>
+        <div class="col-md-6">
+            <ng-container *ngTemplateOutlet="user; context: {data: userData[3]}"> </ng-container>
+        </div> -->
+    </div>
+
+    <ng-template #user let-data="data">
+        <p>femfofmowmfo</p>
+        <p class="name">{{data?.name ? data?.name : 'Udaybhan'}}</p>
+        <p class="email">{{data?.email ? data?.email : 'udaybhan@gmail'}}</p>
+    </ng-template>
