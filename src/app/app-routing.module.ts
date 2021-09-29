@@ -4,10 +4,16 @@ import { ProductComponent } from './product.component';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
 import { RendertemplatesonconditionComponent } from './rendertemplates/rendertemplatesoncondition.component';
+import { ParentComponent } from './parent/parent.component';
 const routes: Route[] = [
   //
   // { path: '', component: ProductComponent },
   { path: '', redirectTo: '/product', pathMatch: 'full' },
+  {
+    path: 'pass-template-as-input-in-another-component', children: [
+      { path: '', component:  ParentComponent},
+   ]
+  },
   {
     path: 'render-templates', children: [
       { path: '', component: RendertemplatesonconditionComponent },
