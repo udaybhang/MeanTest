@@ -15,6 +15,8 @@ import { RendertemplatesonconditionComponent } from './rendertemplates/rendertem
 import { CardComponent } from './rendercard/card.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
+import { AComponent } from './a/a.component';
+import { BComponent } from './b/b.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ChildComponent } from './child/child.component';
     RendertemplatesonconditionComponent,
     CardComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    AComponent,
+    BComponent
   ],
   imports: [
     BrowserModule,
