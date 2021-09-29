@@ -10,6 +10,10 @@
 <ng-template #cardShop let-obj>
     <app-card [data]="obj?.data"></app-card>
 </ng-template> -->
+<ng-container [ngTemplateOutlet]="componentTemplate"></ng-container>
+<ng-template #componentTemplate>
+    <app-card [data]="SelectedData"></app-card>
+</ng-template>
 <!--first face  working  fine* lagane ki jarurat nahi hai kyoki ye structural directry hai -->
 <!-- <ng-template [ngIf]="true">This is ng template text</ng-template> -->
 
@@ -131,12 +135,12 @@
         <p class="email">{{data?.email ? data?.email : 'udaybhan@gmail'}}</p>
     </ng-template> -->
     <!-- seven face -->
-    <div class="row">
+    <!-- <div class="row">
         <div *ngFor="let u of userData">
             <div class="col-md-6">
                 <ng-container *ngTemplateOutlet="user; context: {data: u}"> </ng-container>
             </div>
-        </div>
+        </div> -->
          
         <!--<div class="col-md-6">
             <ng-container *ngTemplateOutlet="user; context: {data: userData[1]}"> </ng-container>
@@ -147,10 +151,10 @@
         <div class="col-md-6">
             <ng-container *ngTemplateOutlet="user; context: {data: userData[3]}"> </ng-container>
         </div> -->
-    </div>
+    <!-- </div> -->
 
-    <ng-template #user let-data="data">
+    <!-- <ng-template #user let-data="data">
         <p>femfofmowmfo</p>
         <p class="name">{{data?.name ? data?.name : 'Udaybhan'}}</p>
         <p class="email">{{data?.email ? data?.email : 'udaybhan@gmail'}}</p>
-    </ng-template>
+    </ng-template> -->

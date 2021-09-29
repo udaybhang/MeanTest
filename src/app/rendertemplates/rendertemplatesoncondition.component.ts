@@ -14,12 +14,16 @@ export class RendertemplatesonconditionComponent implements OnInit {
 
   ngOnInit(): void {
   }
-// data:any = [{
-//   title:"Bag",
-//   color:"blue",
-//   amount:"500",
-//   type:"shop"
-// }]
+data:any = [{
+  title:"Bag",
+  color:"blue",
+  amount:"500",
+  type:"shop"
+}]
+
+get SelectedData() {
+  return this.data[0];
+}
 
 // getSelectedComponentTemplate(type:any) {
 //   switch(type) {
