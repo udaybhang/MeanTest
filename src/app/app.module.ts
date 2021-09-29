@@ -17,6 +17,7 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { AComponent } from './a/a.component';
 import { BComponent } from './b/b.component';
+import { TimerComponent } from './timer/timer.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { BComponent } from './b/b.component';
     ParentComponent,
     ChildComponent,
     AComponent,
-    BComponent
+    BComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
