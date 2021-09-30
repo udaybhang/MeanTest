@@ -12,11 +12,19 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
   }
   public ngAfterViewInit() {
-    // var div = this.elRef.nativeElement.querySelector('.hamburger');
-    // console.log(div)
-    // div.addEventListener('click',()=>{
-    //   document.querySelector('.body')?.classList.toggle("hamburger");
-    // });
+//     $('li').click(() => {
+//       $(this).addClass('active').siblings().removeClass('active');
+// });
+var el = document.querySelectorAll('.controllers');
+for (let i = 0; i < el.length; i++) {
+  el[i].addEventListener('click',  ()=> {
+    var c = 0;
+    while (c < el.length) {
+      el[c++].className = 'slide';
+    }
+    el[i].className = 'slide active';
+  });
+}
   }
 
 }

@@ -64,9 +64,6 @@ body{
     display: inline-block;
 }
 
-
-
-
-ul li {
-   /* background-color: red; */
+.active {
+   background-color: red;
 }

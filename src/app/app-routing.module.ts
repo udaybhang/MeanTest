@@ -8,7 +8,7 @@ import { ParentComponent } from './parent/parent.component';
 import { AComponent } from './a/a.component';
 const routes: Route[] = [
   //
-  { path: '', component: ProductComponent },
+  // { path: '', component: ProductComponent },
   { path: '', redirectTo: '/product', pathMatch: 'full' },
   {path: 'ng-content', component:AComponent},
   {
