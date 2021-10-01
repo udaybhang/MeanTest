@@ -56,6 +56,7 @@ body{
     color: rgb(241, 237, 237);
     font-size: 16px;
     position: relative;
+    text-decoration: none;
 }
 
 .wrapper .sidebar ul li a .icon{
