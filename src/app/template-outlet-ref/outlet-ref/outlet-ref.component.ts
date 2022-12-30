@@ -16,7 +16,8 @@ list:any;
   ngOnInit(): void {
     this.list = [{firstName: 'uday', age:30}, {firstName: 'raja', age:25}]
   }
-  rowClick(event: MouseEvent, firstName: any, index: any) {
-    this.onRowClick.emit({ event, firstName, index: Number(index) });
+  rowClick(event: MouseEvent, firstName: any, age: any) {
+    console.log(firstName, age)
+    this.onRowClick.emit({ event, firstName, age: Number(age) });
   }
 }

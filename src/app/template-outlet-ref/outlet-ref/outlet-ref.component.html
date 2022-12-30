@@ -14,7 +14,7 @@
     <tr
       *ngFor="let lt of list; let index = index"
       
-      (click)="rowClick($event, lt.name, lt.age)">
+      (click)="rowClick($event, lt.firstName, lt.age)">
       <ng-container
         *ngTemplateOutlet="
           leftMostColumnRef || null;

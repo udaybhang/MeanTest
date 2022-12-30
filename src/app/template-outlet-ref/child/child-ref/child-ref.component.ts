@@ -12,6 +12,6 @@ export class ChildRefComponent implements OnInit {
   ngOnInit(): void {
   }
   onASClick(ev:any){
-
+      console.log(ev.firstName, ev.age)
   }
 }
