@@ -14,7 +14,7 @@ list:any;
 @ContentChild("leftMostColumnRef") leftMostColumnRef?: TemplateRef<any>;
 @ContentChild("rightMostColumnRef") rightMostColumnRef?: TemplateRef<any>;
   ngOnInit(): void {
-    this.list = [{firstName: 'uday', age:30}]
+    this.list = [{firstName: 'uday', age:30}, {firstName: 'raja', age:25}]
   }
   rowClick(event: MouseEvent, firstName: any, index: any) {
     this.onRowClick.emit({ event, firstName, index: Number(index) });
