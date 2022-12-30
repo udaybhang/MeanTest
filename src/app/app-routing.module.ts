@@ -6,6 +6,7 @@ import { EditComponent } from './edit/edit.component';
 import { RendertemplatesonconditionComponent } from './rendertemplates/rendertemplatesoncondition.component';
 import { ParentComponent } from './parent/parent.component';
 import { AComponent } from './a/a.component';
+import { ChildRefComponent } from './template-outlet-ref/child/child-ref/child-ref.component';
 const routes: Route[] = [
   //
   // { path: '', component: ProductComponent },
@@ -19,6 +20,11 @@ const routes: Route[] = [
   {
     path: 'render-templates', children: [
       { path: '', component: RendertemplatesonconditionComponent },
+   ]
+  },
+  {
+    path: 'template-ref', children: [
+      { path: '', component: ChildRefComponent },
    ]
   },
   {

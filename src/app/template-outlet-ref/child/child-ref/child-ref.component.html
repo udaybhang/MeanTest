@@ -1,0 +1,26 @@
+ <div class="card">
+    <app-outlet-ref
+      (onRowClick)="onASClick($event)">
+      <ng-template #rightMostHeaderRef>
+        <th>Age</th>
+      </ng-template>
+      <ng-template
+        #rightMostColumnRef
+        let-data>
+        <td>
+          {{ data.authSigner.age }}
+        </td>
+        <!-- <td>
+          <span
+            [ngClass]="{
+              'badge-success': data.authSigner.value.kycStatus === 'success',
+              'badge-warning': data.authSigner.value.kycStatus === 'pending'
+            }"
+            class="badge">
+            {{ data.authSigner.value.kycStatus | titlecase }}
+          </span>
+        </td> -->
+      </ng-template>
+    </app-outlet-ref>
+  </div>
+  

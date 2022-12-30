@@ -1,0 +1,34 @@
+<table
+  class="table">
+  <thead>
+    <tr>
+      <ng-container
+        *ngTemplateOutlet="leftMostHeaderRef || null"></ng-container>
+      <th>Full Name</th>
+      <ng-container
+        *ngTemplateOutlet="rightMostHeaderRef || null"></ng-container>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- // TODO: support only a single auth signer for 1 EPOA, undo this section when supporting multiple auth signer. remove focused class-->
+    <tr
+      *ngFor="let lt of list; let index = index"
+      
+      (click)="rowClick($event, lt.name, lt.age)">
+      <ng-container
+        *ngTemplateOutlet="
+          leftMostColumnRef || null;
+          context: { $implicit: { authSigner: lt, index: index } }
+        "></ng-container>
+
+      <td>
+        {{ lt.firstName}}
+      </td>
+      <ng-container
+        *ngTemplateOutlet="
+          rightMostColumnRef || null;
+          context: { $implicit: { authSigner: lt, index: index } }
+        "></ng-container>
+    </tr>
+  </tbody>
+</table>

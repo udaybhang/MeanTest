@@ -19,6 +19,8 @@ import { AComponent } from './a/a.component';
 import { BComponent } from './b/b.component';
 import { TimerComponent } from './timer/timer.component';
 import { SidebarComponent } from './layout/sidebar.component';
+import { OutletRefComponent } from './template-outlet-ref/outlet-ref/outlet-ref.component';
+import { ChildRefComponent } from './template-outlet-ref/child/child-ref/child-ref.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { SidebarComponent } from './layout/sidebar.component';
     AComponent,
     BComponent,
     TimerComponent,
-    SidebarComponent
+    SidebarComponent,
+    OutletRefComponent,
+    ChildRefComponent
   ],
   imports: [
     BrowserModule,
